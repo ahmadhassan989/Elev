@@ -1,0 +1,137 @@
+User Register
+
+#POST
+localhost:8000/api/register
+Request: 
+JSON
+{
+    "first_name": "Mohammad",
+    "last_name": "Obeidate",
+    "email": "asdf@lkj.sdf",
+    "uuid": "asd22fdasdf"
+}
+
+===========================================
+User Login
+#POST
+localhost:8000/api/login
+Request:
+JSON
+{
+    "email": "ahmad@lkj.sdf",
+    "uuid": "asd22fdasdf"
+}
+Response:
+JSON
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+============================================
+Store Candidate
+#POST
+localhost:8000/api/candidates/store
+Request:
+JSON
+{
+    "first_name": "Ahmad",
+    "last_name": "Ahmad",
+    "email": "asdf@lkj.sdf",
+    "uuid": "asd22fdasdf",
+    "job_major": "Computer Science",
+    "years_of_experience": 5,
+    "degree_type": "Bachelor",
+    "skills": ["a", "b", "c"],
+    "nationality": "asdfasdf",
+    "city": "asdf",
+    "salary": 1551,
+    "gender": "Male"
+}
+
+Response:
+
+JSON
+{
+    "message": "Candidate created successfully!"
+}
+
+===================================================
+Show Candidate
+#GET
+localhost:8000/api/candidates/{id}
+Response:
+JSON
+{
+    "id": 1,
+    "first_name": "Ahmad",
+    "last_name": "Ahmad",
+    "email": "asdf@lkj.sdf",
+    "uuid": "asd22fdasdf",
+    "job_major": "Computer Science",
+    "years_of_experience": 5,
+    "degree_type": "Bachelor",
+    "skills": ["a", "b", "c"],
+    "nationality": "asdfasdf",
+    "city": "asdf",
+    "salary": 1551,
+    "gender": "Male"
+}
+============================================
+Show All Candidates
+#GET
+localhost:8000/api/candidates
+Response:
+JSON
+[
+    {
+        "id": 1,
+        "first_name": "Ahmad",
+        "last_name": "Ahmad",
+        "email": "asdf@lkj.sdf",
+        "uuid": "asd22fdasdf",
+        "job_major": "Computer Science",
+        "years_of_experience": 5,
+        "degree_type": "Bachelor",
+        "skills": ["a", "b", "c"],
+        "nationality": "asdfasdf",
+        "city": "asdf",
+        "salary": 1551,
+        "gender": "Male"
+    },
+    {
+        "id": 2,
+        "first_name": "Mohammad",
+        "last_name": "Obeidate",
+        "email": "asdf@lkj.sdf",
+        "uuid": "asd22fdasdf",
+        "job_major": "Software Engineering",
+        "years_of_experience": 3,
+        "degree_type": "Master",
+        "skills": ["d", "e", "f"],
+        "nationality": "jordan",
+        "city": "amman",
+        "salary": 2
+}
+]
+
+Candidates Endpoint
+This endpoint allows you to search for candidates based on specific criteria.
+
+Endpoint: GET /candidates
+Base URL: http://localhost:8000
+
+Query Parameters
+f_name (string, optional): The first name of the candidate for filtering.
+
+email (string, optional): The email address of the candidate for filtering.
+
+job_major (string, optional): The job major of the candidate for filtering.
+
+yoe (integer, optional): The years of experience of the candidate for filtering.
+
+degree_type (string, optional): The degree type of the candidate for filtering.
+
+gender (string, optional): The gender of the candidate for filtering.
+
+ex:
+GET /candidates?f_name=John&email=john@example.com&job_major=Computer%20Science HTTP/1.1
+Host: http://localhost:8000
